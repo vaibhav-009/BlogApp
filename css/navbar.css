@@ -1,0 +1,44 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 97vw;
+    display: flex;
+    padding: 20px;
+    height: 40px;
+}
+.title {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Lobster', cursive;
+}
+
+.nav-content{
+    margin:auto;
+    align-items: center;
+}
+
+.content-items{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.signin{
+    align-items: center;
+}
+.button-login{
+    margin:5px;
+     width:73px;
+     height:35px;
+     border-radius: 10px;
+     border:0;
+}
+
+.signup{
+    background-color: black;
+    color:white;
+}
+
+.button-login:hover{
+    background-color: rgb(177, 175, 175);
+}
