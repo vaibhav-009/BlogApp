@@ -1,20 +1,27 @@
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 97vw;
+    
+    width: -webkit;
+    position:sticky;
+    top:0px;
     display: flex;
-    padding: 20px;
-    height: 40px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px;
+    padding-top: 20px ;
+    background-color: white;
+    z-index: 100;
+    opacity: 1;
+   
+   
 }
 .title {
     display: flex;
     align-items: center;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Lobster', cursive;
 }
 
 .nav-content{
-    margin:auto;
     align-items: center;
 }
 
