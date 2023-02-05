@@ -1,25 +1,37 @@
-import React from 'react';
+import { Box } from "@mui/material";
+import React from "react";
 import "../../css/featured.css";
 
 function Featured(props) {
-    
-    return (
-        <div className='banner'>
-            <div className='feature-img'
-                style={{
-                    backgroundImage: `url(${props.link})`,
-                    backgroundSize: "cover"
-            }}>
-            <div className='gradient'>    
-                <div className='contents'>
-                    <div className='heading'>Lorem Ipsum</div>
-                    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et commodi est quae corporis, voluptas facere cumque magni vero ipsum dolores pariatur quia natus eaque, molestias labore. Nihil adipisci illo quos.</div>
-                </div>  
-            </div>
+  return (
+    <Box
+      className="featured_blog"
+      style={{
+        backgroundSize: "cover",
+        backgroundImage: `url(
+          ${props.link}
+      )`,
+        backgroundPosition: "top center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="featured_blog_contents">
+        {/* title */}
+        <h1 className="featured_blog_title">{"Title"}</h1>
+        {/* div > 2 buttons */}
+        <div className="featured_blog_buttons">
+          <button className="featured_blog_button">Read</button>
         </div>
-        </div>
-    )
+        {/* desciption */}
+        <h1 className="featured_blog_description">
+          {
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Et    commodi est quae corporis, voluptas facere cumque magni vero ipsumdolores pariatur quia natus eaque, molestias labore. Nihiladipisci illo quos."
+          }
+        </h1>
+      </div>
+      <div className="featured_blog_fadeBottom"></div>
+    </Box>
+  );
 }
-
 
 export default Featured;
