@@ -1,7 +1,27 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const AuthPage = () => {
+  const navigate = useNavigate();
+
+  const handleLoginGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+
+        const user = result.user;
+        console.log(user);
+        navigate("/home");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <Box sx={{ height: "100vh" }}>
       <Box
@@ -24,6 +44,7 @@ const AuthPage = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
             width: "45%",
             padding: "10px",
             margin: "20px",
@@ -74,83 +95,12 @@ const AuthPage = () => {
               backgroundSize: "25px auto",
               backgroundPosition: "40px 8px",
             }}
+            onClick={() => {
+              handleLoginGoogle();
+            }}
           >
             Sign in with Google
           </button>
-          <h6 style={{ margin: "10px", textAlign: "center" }}>Or</h6>
-
-          <Box sx={{ width: "70%" }}>
-            <label for="name">Name</label>
-            <br />
-            <input
-              style={{
-                width: "-webkit-fill-available",
-                padding: "7px 7px 7px 7px",
-                border: "none",
-                margin: "5px",
-                borderRadius: "3px",
-                border: "1px solid silver",
-                marginLeft: 0,
-
-                color: "#757575",
-                fontSize: "14px",
-                fontWeight: "500",
-              }}
-              placeholder="Enter your name"
-            />
-            <br />
-            <label for="email">Email</label>
-            <br />
-            <input
-              style={{
-                width: "-webkit-fill-available",
-                padding: "7px 7px 7px 7px",
-                border: "none",
-                margin: "5px",
-                borderRadius: "3px",
-                border: "1px solid silver",
-                marginLeft: 0,
-
-                color: "#757575",
-                fontSize: "14px",
-                fontWeight: "500",
-              }}
-              placeholder="Enter your email"
-            />
-            <br />
-            <label for="password">Password</label>
-            <br />
-            <input
-              style={{
-                width: "-webkit-fill-available",
-                padding: "7px 7px 7px 7px",
-                border: "none",
-                margin: "5px",
-                borderRadius: "3px",
-                border: "1px solid silver",
-                marginLeft: 0,
-
-                color: "#757575",
-                fontSize: "14px",
-                fontWeight: "500",
-              }}
-              placeholder="set your password"
-            />
-
-            <Button
-              sx={{
-                color: "white",
-                background: "black",
-                width: "100%",
-                marginTop: "4px",
-                "&:hover": {
-                  background: "#16213E",
-                },
-              }}
-            >
-              Sign up
-            </Button>
-          </Box>
         </Box>
         <Box sx={{ width: "55%", padding: "10px" }}>
           <img
