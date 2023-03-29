@@ -1,16 +1,33 @@
-import { Box } from "@mui/material";
-import React from "react";
+import { Box, Button } from "@mui/material";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../../css/myblogs.css";
 import Navbar from "./Navbar";
 
 const MyBlogs = () => {
   const navigate = useNavigate();
+  const [blogList, setBlogList] = useState([]);
 
-  const arr = [];
   return (
     <>
       <Navbar />
-      <Box
+      <Box>
+        <Button
+          onClick={() => {
+            navigate("/editor");
+          }}
+        >
+          Add new
+        </Button>
+      </Box>
+    </>
+  );
+};
+
+export default MyBlogs;
+
+{
+  /* <Box
         sx={{
           height: "50px",
           width: "50px",
@@ -23,10 +40,5 @@ const MyBlogs = () => {
         onClick={() => {
           navigate("/editor");
         }}
-      ></Box>
-      {arr.length > 0 && <Box>hello</Box>}
-    </>
-  );
-};
-
-export default MyBlogs;
+      ></Box>  */
+}

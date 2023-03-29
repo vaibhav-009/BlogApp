@@ -7,14 +7,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Blog_1 from "./Templates/Blog_1";
 import Blog_2 from "./Templates/Blog_2";
 import ImgIcon from "../images/icon1.png";
-import { display } from "@mui/system";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from "../firebase";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 const BlogEditor = () => {
   const [previewMode, setPreviewMode] = useState(false);
@@ -25,9 +23,43 @@ const BlogEditor = () => {
   const [image1Url, setImage1Url] = useState(null);
   const [secondaryImg, setSecondaryImg] = useState(null);
   const [image2Url, setImage2Url] = useState(null);
+  const [downloadUrl1, setDownloadUrl1] = useState("");
+  const [downloadUrl2, setDownloadUrl2] = useState("");
+  const storage = getStorage();
 
-  // const storageRef = ref(storage, );
-  // const uploadTask = uploadBytesResumable(storageRef, file);
+  const handleUpload1 = () => {
+    console.log("hello");
+    const storage = getStorage();
+    const storageRef = ref(storage, primaryImg.name);
+
+    uploadBytes(storageRef, primaryImg).then((snapshot) => {
+      getDownloadURL(ref(storage, primaryImg.name)).then((url) => {
+        console.log(url);
+        setDownloadUrl1(url);
+      });
+    });
+  };
+
+  const handleUpload2 = () => {
+    console.log("hello2");
+
+    const storageRef = ref(storage, secondaryImg.name);
+
+    uploadBytes(storageRef, secondaryImg).then((snapshot) => {
+      getDownloadURL(ref(storage, secondaryImg.name)).then((url) => {
+        console.log(url);
+        setDownloadUrl2(url);
+      });
+    });
+
+    // console.log(downloadUrl);
+  };
+
+  const blink = () => {
+    // see this is imp , it will not work since state of these url are not changing immedietly
+    console.log(downloadUrl1);
+    console.log(downloadUrl2);
+  };
 
   useEffect(() => {
     if (primaryImg) {
@@ -127,7 +159,7 @@ const BlogEditor = () => {
                         width: "70%",
                         padding: "5px",
                       }}
-                      for="file-upload"
+                      htmlFor="file-upload"
                     >
                       <img
                         style={{ height: "55px", width: "55px" }}
@@ -180,7 +212,7 @@ const BlogEditor = () => {
                         color: "blue",
                         marginTop: "10px",
                       }}
-                      for="file-reupload"
+                      htmlFor="file-reupload"
                     >
                       Change
                     </label>
@@ -221,7 +253,7 @@ const BlogEditor = () => {
                         width: "70%",
                         padding: "5px",
                       }}
-                      for="file-upload2"
+                      htmlFor="file-upload2"
                     >
                       <img
                         style={{ height: "55px", width: "55px" }}
@@ -274,7 +306,7 @@ const BlogEditor = () => {
                         color: "blue",
                         marginTop: "10px",
                       }}
-                      for="file-reupload2"
+                      htmlFor="file-reupload2"
                     >
                       Change
                     </label>
@@ -371,7 +403,16 @@ const BlogEditor = () => {
               >
                 Preview
               </Button>
-              <Button>Publish</Button>
+              <Button
+                onClick={() => {
+                  handleUpload1();
+                  handleUpload2();
+                  alert("both success");
+                  blink();
+                }}
+              >
+                Publish
+              </Button>
             </Box>
           </Box>
         </>
@@ -391,7 +432,7 @@ const BlogEditor = () => {
           >
             Toggle
           </Button>
-          <Blog_1
+          <Blog_2
             title={title}
             para1={para1}
             para2={para2}
@@ -405,3 +446,20 @@ const BlogEditor = () => {
 };
 
 export default BlogEditor;
+
+//
+// title : String, ( easy hai upr khi )
+// tag : String, (ye tujhe add krna hai , iska khi koi option dena hai tujhe form me, bas form me dede ki databse me save ho jaye baki bad me dekh lenge)
+// blog_image : String (downloadurl1 , downloadurl2 , inme state ka lafda hai so jab inki state change ho tabhi db me push krio),
+// blog_text: String (para1 and para2),
+// time_stamp : Date ( kr lega tu ),
+
+// ye data nikalne ke liye simple bas in cheezo ka use krna hai
+// import { AuthContext } from "../context/AuthContext"; -> pehle import kr liyo
+// const { currentUser } = useContext(AuthContext); -> ise component and andar declare krio
+//   console.log(currentUser.displayName); ->is tarah se property access kr payega fir tu , ye displayname bataeha logged in user ki
+// userdata :{
+// userid: String (),
+// username : String,
+// photo_URL : String,
+// email: String

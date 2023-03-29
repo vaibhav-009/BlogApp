@@ -33,7 +33,14 @@ function Navbar(props) {
         >
           Home
         </span>
-        <span className="content-items">Product</span>
+        <span
+          className="content-items"
+          onClick={() => {
+            navigate("/explore");
+          }}
+        >
+          Explore
+        </span>
         {currentUser && (
           <span
             className="content-items"
@@ -41,11 +48,9 @@ function Navbar(props) {
               navigate("/my-blogs");
             }}
           >
-            My Blogs
+            Create
           </span>
         )}
-        <span className="content-items">Pricing</span>
-        <span className="content-items">About us</span>
       </div>
       {!currentUser && (
         <div className="signin">
