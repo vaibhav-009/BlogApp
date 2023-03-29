@@ -3,3 +3,18 @@
     padding: 0;
    font-family: 'Quicksand', sans-serif; 
 }
+
+::-webkit-scrollbar{
+    width: 8px;
+
+}
+::-webkit-scrollbar-track{
+    background-color: floralwhite;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgba(128, 128, 128, 0.571);
+    
+    
+    box-shadow: 3px 4px 5px wheat;
+    height: 10px;
+}

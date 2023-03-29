@@ -1,35 +1,22 @@
-import { Box } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import "../../css/featured.css";
+import BlogPic from "../../src/images/Blog.png"
+import Explore from "../../src/images/bloglogin.webp"
+import MyBlg from "../../src/images/myblogs1.png"
+
 
 function Featured(props) {
   return (
-    <Box
-      className="featured_blog"
-      style={{
-        backgroundSize: "cover",
-        backgroundImage: `url(
-          ${props.link}
-      )`,
-        backgroundPosition: "top center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="featured_blog_contents">
-        {/* title */}
-        <h1 className="featured_blog_title">{"Title"}</h1>
-        {/* div > 2 buttons */}
-        <div className="featured_blog_buttons">
-          <button className="featured_blog_button">Read</button>
-        </div>
-        {/* desciption */}
-        <h1 className="featured_blog_description">
-          {
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Et    commodi est quae corporis, voluptas facere cumque magni vero ipsumdolores pariatur quia natus eaque, molestias labore. Nihiladipisci illo quos."
-          }
-        </h1>
-      </div>
-      <div className="featured_blog_fadeBottom"></div>
+    <Box id="featured_sec" >
+      <Box id="left_sec">
+        <img style={{height:'auto',width:'95%'}} id="left_img" src={BlogPic} />
+      </Box>
+      <Box id="right_sec">
+        
+        <img style={{objectFit:'cover', height:'200px',width:'100%'}} src={Explore}/>
+        <img style={{objectFit:'cover', height:'200px',width:'100%'}} src={MyBlg}/>
+      </Box>
     </Box>
   );
 }
