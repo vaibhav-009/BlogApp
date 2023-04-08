@@ -33,8 +33,9 @@ app.get("/", (req, res) => {
     res.send("hello");
 });
 
-app.post("/create", (req, res) => {
-    console.log(req);
+app.post("/api/create", (req, res) => {
+    console.log(req.body);
+    console.log(req.query);
     const blog = {
         userId: req.body.id,
         title: req.body.head,

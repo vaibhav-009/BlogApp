@@ -14,7 +14,7 @@ import Blog_1 from "./Templates/Blog_1";
 import Blog_2 from "./Templates/Blog_2";
 import ImgIcon from "../images/icon1.png";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-import { AuthContext } from "../context/AuthContext"; 
+import { AuthContext } from "../context/AuthContext";
 
 const BlogEditor = () => {
   const [previewMode, setPreviewMode] = useState(false);
@@ -29,28 +29,30 @@ const BlogEditor = () => {
   const [downloadUrl1, setDownloadUrl1] = useState("");
   const [downloadUrl2, setDownloadUrl2] = useState("");
   const storage = getStorage();
-  const curruser  = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     const date = new Date();
-    
-    console.log(curruser.displayEmail);
-    const object = {
-      id:'temp',
-      head: title,
-      label:tag,
-      body1:para1,
-      body2:para2,
-      imgUrl1: downloadUrl1,
-      imgUrl2: downloadUrl2,
-      timestamp: date
-    }
-    
-    if (downloadUrl1 && downloadUrl2)
-    {
-      axios.post("/create", (object),{
-        headers: { "Content-type": "application/json" },
-      })
+
+    console.log(currentUser);
+
+    if (downloadUrl1 && downloadUrl2) {
+      const object = {
+        id: currentUser.email,
+        head: title,
+        label: tag,
+        body1: para1,
+        body2: para2,
+        imgUrl1: downloadUrl1,
+        imgUrl2: downloadUrl2,
+        timestamp: date,
+      };
+
+      console.log(object);
+      axios
+        .post("/api/create", object, {
+          headers: { "Content-type": "application/json" },
+        })
         .then((res) => {
           alert("success");
         })
@@ -59,8 +61,7 @@ const BlogEditor = () => {
         });
       // console.log(object);
     }
-    
-  }, [title,para1,para2,downloadUrl1,downloadUrl2]);
+  }, [downloadUrl1, downloadUrl2]);
 
   const handleUpload1 = () => {
     console.log("hello");
@@ -158,8 +159,7 @@ const BlogEditor = () => {
               }}
               onChange={(e) => {
                 setTitle(e.target.value);
-              }
-              }
+              }}
               placeholder="captivate your audience with a compelling blog title"
             />
             <input
@@ -171,8 +171,7 @@ const BlogEditor = () => {
                 fontSize: "16px",
                 fontFamily: '"Lato",sans-serif',
               }}
-
-              onChange={(e)=>{
+              onChange={(e) => {
                 setTag(e.target.value);
               }}
               placeholder="tag"
