@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const e = require('express');
 const app = express();
 
 app.use(express.json());
@@ -56,6 +57,35 @@ app.post("/api/create", (req, res) => {
             res.send(err);
         });
 });
+
+app.post("/api/tag", async(req, res) => {
+    
+    const label = req.body.tag;
+    var data;
+    
+    if (label === "")
+        data = await BlogObj.find({});
+        
+    else
+        data = await BlogObj.find({ tag: label });
+        
+    
+    res.send(data);
+});
+
+app.post("/api/delete", async (req, res) => {
+    
+    const ObjectId = mongoose.Types.ObjectId;
+    const blog_id = req.body.id;
+
+    BlogObj.deleteOne({ _id:new ObjectId(blog_id)})
+        .then(() => {
+            res.send("Deleted successfully");
+        })
+        .catch((err) => {
+            res.send(err);
+        });
+})
 
 
 app.listen(5000, function () {
