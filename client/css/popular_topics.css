@@ -1,0 +1,31 @@
+.pop_top{
+    margin: 45px;
+    font-family: 'Lora', serif;
+    
+}
+
+#pop_heading{
+    font-size: 36px;
+    font-family: 'Lora', serif;
+    font-weight: bold;
+}
+
+#topic_tags{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-top: 8px;
+    margin-bottom: 25px;
+    font-family: 'Lora', serif;
+}
+
+#main_tags{
+    display: flex;
+    flex-direction: row;
+
+    width: 28%;
+    justify-content: space-between;
+   
+    font-family: 'Lora', serif;
+}

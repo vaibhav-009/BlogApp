@@ -1,0 +1,43 @@
+.single_featured{
+    height: 80vh;
+    margin: 40px 0px ;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: aliceblue;
+    background: url("../src/images/featured_bg.png");
+   color: white;
+   image-resolution: 300dpi;
+}
+
+.sgft_btn{
+    padding: 4px;
+    width: 90px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-family: 'Lora', serif;
+    background-color: rgba(249, 249, 249, 0.196);
+    border: none;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#sgft_title{
+    font-size: 32px;
+    font-family: 'Lora', serif;
+    margin-bottom: 10px;
+}
+
+#sgft_para{
+    font-size: 12px;
+    color: azure;
+    font-family: 'Lora', serif;
+}
+
+#sgft_date{
+    margin-top: 20px;
+    font-size: 12px;
+    color: azure;
+    font-family: 'Lora', serif;
+}

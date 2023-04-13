@@ -1,24 +1,29 @@
-import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import "../../css/featured.css";
-import BlogPic from "../../src/images/Blog.png"
-import Explore from "../../src/images/bloglogin.webp"
-import MyBlg from "../../src/images/myblogs1.png"
+import { Box, Typography } from "@mui/material";
+import banner from "../images/banner.png";
 
-
-function Featured(props) {
+const Featured = () => {
   return (
-    <Box id="featured_sec" >
-      <Box id="left_sec">
-        <img style={{height:'auto',width:'95%'}} id="left_img" src={BlogPic} />
+    <Box className="home">
+      <Box className="left_featured">
+        <p className="app_name">BlogApp</p>
+
+        <p className="tagline">Share your thoughts, connect with the world</p>
+
+        <Typography className="minitag">
+          the power of blogging at your fingertips.
+        </Typography>
+        <Box className="btns">
+          <button id="btn-1">Explore</button>
+          <button id="btn-2">Create</button>
+        </Box>
       </Box>
-      <Box id="right_sec">
-        
-        <img style={{objectFit:'cover', height:'200px',width:'100%'}} src={Explore}/>
-        <img style={{objectFit:'cover', height:'200px',width:'100%'}} src={MyBlg}/>
+      <Box className="right_featured">
+        <img className="img-1" src={banner} alt="blogapp" />
       </Box>
     </Box>
   );
-}
+};
 
 export default Featured;

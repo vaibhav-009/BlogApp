@@ -6,13 +6,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 8px;
+    padding: 5px;
     padding-top: 20px ;
     background-color: white;
     opacity: 0.3;
     z-index: 100;
     opacity: 1;
    cursor: pointer;
+   border-bottom:1px solid rgba(142, 142, 142, 0.135) ;
+
    
 }
 .title {
