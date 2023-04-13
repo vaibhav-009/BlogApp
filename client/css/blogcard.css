@@ -1,0 +1,52 @@
+.blog_card{
+    height: 400px;
+    width: 280px;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: 'Lora', serif;
+}
+
+.image_card{
+    height: 248px;
+    width: 280px;
+    
+}
+
+.card_img{
+    object-fit: cover;
+    height: 248px;
+    width: 280px;
+    border-radius: 5px;
+
+}
+
+.card_tag{
+    position: relative;
+    top: 30px;
+    left: 10px;
+    font-family: 'Lora', serif;
+}
+
+.card_data{
+    margin-top:16px ;
+    font-family: 'Lora', serif;
+}
+
+#card_date{
+    font-size: 11px;
+    font-family: 'Lora', serif;
+    color: rgb(118, 117, 117);
+}
+#card_title
+{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Lora', serif;
+    margin: 14px 0px;
+}
+
+.card_para{
+    font-size: 12px;
+    color: rgb(153, 153, 153);
+    font-family: 'Lora', serif;
+}

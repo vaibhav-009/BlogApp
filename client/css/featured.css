@@ -1,32 +1,75 @@
-#featured_sec{
-    background-color: whitesmoke;
-    border-radius: 5px;
-    display: flex;
-    margin: 0px 20px;
-    padding: 20px 0px;
-    justify-content: space-between;
-}
-
-#left_sec{
-    
-    display: flex;
-    justify-content: space-around;
-    width: 70%;
-}
-
-#right_sec{
-    /* background-color: red; */
-    display: flex;
-    width: 28%;
-
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    align-items: flex-start;
-}
-
-#left_img
+.home
 {
-    height: 450px;
-    border-radius: 10px;
+    display: flex;
+    min-height: 60vh;
+}
+
+.left_featured{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width:55%;
+   
+    justify-content: center;
+    
+}
+
+.right_featured{
+    width: 65%;
+}
+.app_name{
+    font-size: 20px;
+    font-family: 'Lobster', cursive;
+}
+
+.tagline{
+    font-size: 60px;
+   font-family: 'Quicksand', sans-serif; 
+   line-height: 60px;
+}
+
+.minitag{
+    font-size: 12px;
+    color: rgb(148, 148, 148);
+    font-family: 'Quicksand', sans-serif; 
+}
+
+.btns{
+    margin-top: 20px;
+}
+
+#btn-1{
+    cursor: pointer;
+    margin-right: 10px;
+    width:100px;
+    height: 30px;
+    border-radius: 16px;
+    background-color: rgba(128, 128, 128, 0.139);
+    border: none;
+    box-shadow: 3px 4px 5px whitesmoke;
+    font-family: 'Quicksand', sans-serif; 
+    font-weight: bold;
+}
+
+
+#btn-2{
+    cursor: pointer;
+    margin-right: 10px;
+
+    width:100px;
+    height: 30px;
+    border-radius: 16px;
+    background-color: orange;
+    color: white;
+   border: none;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 3px 4px 5px whitesmoke; 
+    font-weight: bolder;
+
+}
+
+.img-1{
+    height: 60vh;
+    width: 100%;
+    object-fit: cover;
 }
