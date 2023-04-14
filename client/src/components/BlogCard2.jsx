@@ -1,18 +1,17 @@
 import React from "react";
 import "../../css/blogcard2.css";
 
-const BlogCard2 = () => {
+const BlogCard2 = (props) => {
+  const details = props.details;
   return (
-    <div className="bcard2">
+    <div className="bcard2" style={{backgroundImage: `url(${details.url})`}}>
       <div className="overlay">
-        <div className="bcard2_tag">Science</div>
+        <div className="bcard2_tag">{details.tag}</div>
 
         <div className="bcard2_data">
-          <p id="bcard2_date">08.08.2023</p>
-          <p id="bcard2_title">May this title help you doing your work</p>
-          <p className="bcard2_para">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-          </p>
+          <div className="bcard2_date">{details.date}</div>
+          <div className="bcard2_title">{details.title}</div>
+          <div className="bcard2_para">{details.para}</div>
         </div>
       </div>
     </div>

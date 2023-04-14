@@ -35,8 +35,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/api/create", (req, res) => {
-    console.log(req.body);
-    console.log(req.query);
+    
     const blog = {
         userId: req.body.id,
         title: req.body.head,
@@ -87,6 +86,13 @@ app.post("/api/delete", async (req, res) => {
         });
 })
 
+app.post("/api/user_blogs", async(req, res) => {
+    
+    const user_id = req.body.userId;
+    const data = await BlogObj.find({ userId: user_id });
+
+    res.send(data);
+})
 
 app.listen(5000, function () {
     console.log("Server is running on localhost5000");

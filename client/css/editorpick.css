@@ -1,4 +1,13 @@
-.edit_pick{
+.edit_pick {
     margin: 45px;
 }
 
+.heading {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: flex;
+}

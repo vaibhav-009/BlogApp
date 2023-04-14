@@ -33,12 +33,13 @@ const BlogEditor = () => {
 
   useEffect(() => {
     const date = new Date();
-
-    console.log(currentUser);
-
+    
     if (downloadUrl1 && downloadUrl2) {
+      var email = currentUser.email;
+      var index = email.indexOf("@");
+      var username = email.substring(0, index);
       const object = {
-        id: currentUser.email,
+        id: username,
         head: title,
         label: tag,
         body1: para1,
