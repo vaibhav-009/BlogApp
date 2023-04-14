@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import "../../css/popular_topics.css";
 import BlogCard from "./BlogCard";
+import axios from "axios";
 
 const PopularTopics = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const object = {
+      tag: "",
+    };
+    axios
+      .post("/api/tag", object, {
+        headers: { "Content-type": "application/json" },
+      })
+      .then((res) => {
+        console.log(res);
+        setBlogs(res.data.slice(1, 5));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <Box className="pop_top">
       <p id="pop_heading">Popular topics</p>
@@ -26,10 +46,15 @@ const PopularTopics = () => {
           justifyContent: "space-between",
         }}
       >
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
+        {blogs.map((element) => {
+          return (
+            <BlogCard
+              onClick={() => {}}
+              blog_data={element}
+              key={element._id}
+            />
+          );
+        })}
       </Box>
     </Box>
   );
