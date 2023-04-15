@@ -44,16 +44,11 @@ const PopularTopics = () => {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
         {blogs.map((element) => {
-          return (
-            <BlogCard
-              onClick={() => {}}
-              blog_data={element}
-              key={element._id}
-            />
-          );
+          return <BlogCard blog_data={element} key={element._id} />;
         })}
       </Box>
     </Box>

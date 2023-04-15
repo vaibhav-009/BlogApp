@@ -38,11 +38,16 @@ text-align: justify;
 }
 
 #title{
+    cursor: pointer;
     font-size: 25px;
     font-weight: bolder;
     color: black;
     margin-bottom: 8px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+#title:hover{
+    text-decoration: underline;
 }
 
 .extra{

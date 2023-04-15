@@ -26,7 +26,7 @@ const BlogCard = (props) => {
       <div className="card_data">
         <p id="card_date">08.08.2023</p>
         <p id="card_title">{props.blog_data.title}</p>
-        <p className="card_para">{props.blog_data.para1.substr(1, 80)}</p>
+        <p className="card_para">{props.blog_data.para1.substr(0, 85)}...</p>
       </div>
     </Box>
   );

@@ -26,12 +26,15 @@
     font-size: 60px;
    font-family: 'Quicksand', sans-serif; 
    line-height: 60px;
+   margin: 5px 0px;
+   
 }
 
 .minitag{
     font-size: 12px;
     color: rgb(148, 148, 148);
-    font-family: 'Quicksand', sans-serif; 
+    font-family: 'Quicksand', sans-serif;
+
 }
 
 .btns{

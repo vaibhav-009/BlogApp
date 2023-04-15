@@ -18,10 +18,13 @@
     height: 60vh;
     border-radius: 4px;
     box-shadow: 0px 0px 30px rgba(143, 142, 142, 0.384);
+    object-position: center left;
+    
 }
 
 #blgvw_title{
     margin: 8px;
+    margin-top: 3px;
     font-size: 50px;
     font-family: 'Lora', serif;
 }

@@ -1,10 +1,15 @@
 .blog_card{
-    height: 400px;
+    height: 365px;
     width: 280px;
     box-sizing: border-box;
     overflow: hidden;
     font-family: 'Lora', serif;
+    cursor: pointer;
+    border-radius: 5px;
+    
 }
+
+
 
 .image_card{
     height: 248px;
@@ -16,7 +21,7 @@
     object-fit: cover;
     height: 248px;
     width: 280px;
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
 
 }
 
@@ -29,23 +34,28 @@
 
 .card_data{
     margin-top:16px ;
+    margin-left: 4px;
     font-family: 'Lora', serif;
 }
 
 #card_date{
+    padding-left: 5px;
     font-size: 11px;
     font-family: 'Lora', serif;
     color: rgb(118, 117, 117);
 }
 #card_title
 {
+    padding-left: 5px;
     font-size: 16px;
     font-weight: bold;
     font-family: 'Lora', serif;
-    margin: 14px 0px;
+    margin: 10px 0px;
+    margin-bottom: 5px;
 }
 
 .card_para{
+    padding: 0px 5px;
     font-size: 12px;
     color: rgb(153, 153, 153);
     font-family: 'Lora', serif;

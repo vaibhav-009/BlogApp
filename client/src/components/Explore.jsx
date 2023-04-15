@@ -1,12 +1,41 @@
 import { Box, Button, Typography } from "@mui/material";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../css/explore.css";
 import BlogHorizontal from "./BlogHorizontal";
-import Navbar from "./Navbar";
+import { AuthContext } from "../context/AuthContext";
+import axios from "axios";
 
 const Explore = () => {
+  const { currentUser } = useContext(AuthContext);
+
+  const name = currentUser.displayName;
+  const email = currentUser.email;
+  const photo_url = currentUser.photoURL;
+  const [tag, setTag] = useState("Blogs");
+  const [blogdata, setBlogdata] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const object = {
+      tag: tag === "Blogs" ? "" : tag,
+    };
+    axios
+      .post("/api/tag", object, {
+        headers: { "Content-type": "application/json" },
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.data.length == 0) {
+          console.log("nothing to show");
+        }
+        setBlogdata(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [tag]);
+
   return (
     <Box className="exp_cont">
       <Box className="left_pane">
@@ -26,26 +55,96 @@ const Explore = () => {
           </Box>
           <hr />
           <Box className="Blog_cat">
-            <Typography className="topic">Blog</Typography>
+            <Typography className="topic">
+              {tag == "" ? "Blogs" : tag}
+            </Typography>
             <Typography>Filter</Typography>
 
             <div className="tab">
-              <button className="tab-buttons">Design</button>
-              <button className="tab-buttons">Technology</button>
-              <button className="tab-buttons">Programming</button>
-              <button className="tab-buttons">Crypto</button>
-              <button className="tab-buttons">Blockchain</button>
-              <button className="tab-buttons">Metaverse</button>
+              <button
+                onClick={() => {
+                  setTag("");
+                }}
+                className="tab-buttons"
+              >
+                All
+              </button>
+              <button
+                onClick={() => {
+                  setTag("Technology");
+                }}
+                className="tab-buttons"
+              >
+                Technology
+              </button>
+              <button
+                onClick={() => {
+                  setTag("Programming");
+                }}
+                className="tab-buttons"
+              >
+                Programming
+              </button>
+              <button
+                onClick={() => {
+                  setTag("Science");
+                }}
+                className="tab-buttons"
+              >
+                Science
+              </button>
+              <button
+                onClick={() => {
+                  setTag("Blockchain");
+                }}
+                className="tab-buttons"
+              >
+                Blockchain
+              </button>
+              <button
+                onClick={() => {
+                  setTag("Metaverse");
+                }}
+                className="tab-buttons"
+              >
+                Metaverse
+              </button>
             </div>
           </Box>
         </Box>
-        <Box className="content">
-          <BlogHorizontal />
-          <BlogHorizontal />
-          <BlogHorizontal />
-        </Box>
+        <div>
+          {blogdata.length == 0 ? (
+            <div
+              style={{
+                fontSize: "40px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "40vh",
+                marginTop: "30px",
+                color: "silver",
+              }}
+            >
+              <p style={{ fontFamily: '"Quicksand", sans-serif' }}>
+                Nothing to show
+              </p>
+            </div>
+          ) : (
+            <Box className="content">
+              {blogdata.map((element) => {
+                return <BlogHorizontal blog_data={element} key={element._id} />;
+              })}
+            </Box>
+          )}
+        </div>
       </Box>
-      <Box className="right_pane">THis is right left_pane</Box>
+      <Box className="right_pane">
+        <div className="user_card">
+          <img id="user_img" src={photo_url} alt={name} />
+          <p className="usr_txt">{name}</p>
+          <p className="usr_txt">{email}</p>
+        </div>
+      </Box>
     </Box>
   );
 };
