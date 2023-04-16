@@ -14,7 +14,8 @@
 
 .blog_view_img1{
     object-fit: cover;
-    width: 100%;
+    width: 70%;
+    margin: auto;
     height: 60vh;
     border-radius: 4px;
     box-shadow: 0px 0px 30px rgba(143, 142, 142, 0.384);

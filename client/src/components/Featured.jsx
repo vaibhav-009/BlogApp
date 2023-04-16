@@ -2,8 +2,10 @@ import React from "react";
 import "../../css/featured.css";
 import { Box, Typography } from "@mui/material";
 import banner from "../images/banner.png";
+import { useNavigate } from "react-router-dom";
 
 const Featured = () => {
+  const navigate = useNavigate();
   return (
     <Box className="home">
       <Box className="left_featured">
@@ -15,8 +17,22 @@ const Featured = () => {
           the power of blogging at your fingertips.
         </Typography>
         <Box className="btns">
-          <button id="btn-1">Explore</button>
-          <button id="btn-2">Create</button>
+          <button
+            onClick={() => {
+              navigate("/explore");
+            }}
+            id="btn-1"
+          >
+            Explore
+          </button>
+          <button
+            id="btn-2"
+            onClick={() => {
+              navigate("/my-blogs");
+            }}
+          >
+            Create
+          </button>
         </Box>
       </Box>
       <Box className="right_featured">

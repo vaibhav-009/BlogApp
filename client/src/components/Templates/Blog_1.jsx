@@ -1,15 +1,36 @@
-import { Avatar, Box, ListItemAvatar, Typography } from "@mui/material";
+import "../../../css/viewblog.css";
 import React from "react";
 
 const Blog_1 = (blog_data) => {
-  const title = blog_data.title;
-  const para1 = blog_data.para1;
-  const para2 = blog_data.para2;
-  const image1Url = blog_data.image1Url;
-  const image2Url = blog_data.image2Url;
+  const dummystring =
+    "Lorem ipsum dolor, sit amet mus, illo nihil labore incidunt saepe ea, et id voluptates laborum consequatur tenetur, qui exercitationem corporis cupiditate voluptate corrupti? Harum, officiis. Qui ullam dolores a sint sunt, odit iste distinctio ipsam ea fuga velit alias reprehenderit labore incidunt? Nam, impedit nihil sapiente officiis nemo, numquam ducimus magni sint aliquam sit ratione possimus in quam? Repudiandae molestias quisquam, possimus blanditiis, molestiae similique voluptatum optio eum vitae architecto perferendis laudantium, iusto perspiciatis! Deleniti facere earum adipisci officiis provident natus. Reprehenderit ea necessitatibus corporis ratione aspernatur ducimus, hic, quisquam assumenda minima aliquam mollitia temporibus totam dicta atque magnam accusamus! Porro exercitationem temporibus alias. Veritatis neque provident non, nisi ratione necessitatibus voluptatum repellendus? Voluptas id aliquam nisi deserunt, doloremque iure ut repudiandae, totam labore commodi rerum nemo aliquid facilis iste natus voluptatem necessitatibus. Dolorum et eveniet, optio fugit dignissimos quod provident quae temporibus, molestiae iure voluptatem ut incidunt! Iure commodi temporibus culpa cupiditate nam officia nisi quam quod, pariatur assumenda, aperiam nemo accusantium minima esse autem, sit dolore consequatur! Voluptates iusto soluta possimus dolor exercitationem? Iste mollitia temporibus amet aliquam, exercitationem ratione! Mollitia, impedit! Sequi voluptas rerum temporibus fuga consectetur autem doloribus aliquid nihil? Iure expedita distinctio, consectetur quidem illo esse vero est? Aspernatur placeat explicabo laboriosam reprehenderit dicta iste suscipit odio, debitis, esse optio in magnam? Esse a illum impedit iure sunt cupiditate veniam deserunt aspernatur iusto, ipsa incidunt, maxime sit commodi hic labore deleniti! Ipsam iusto perspiciatis officia minima natus, alias aperiam optio. Voluptate rem quidem provident quod neque facere! Dicta distinctio sunt doloribus ipsa temporibus ut quaerat eveniet illum rem, corrupti similique beatae, et, quas commodi tenetur? Repellendus obcaecati asperiores, laboriosam, debitis dolore quo, magnam quibusdam veniam aut incidunt totam! Mollitia non tenetur ipsum obcaecati vitae expedita adipisci maxime modi eligendi sapiente perferendis minima labore, dolor tempora. Expedita modi rem perferendis maxime unde beatae laborum architecto a omnis sint laboriosam doloremque similique enim voluptatibus eaque, fuga tempora! Similique assumenda autem, repellendus quibusdam porro fugiat magnam minima laborum asperiores! Doloremque dicta architecto accusamus ipsa? Dolorem quia iure fugit esse nostrum quibusdam, labore autem velit possimus nesciunt corrupti rem necessitatibus deleniti. Ex rerum eos ipsum voluptatem perferendis iste obcaecati quaerat tenetur fugit eligendi inventore enim corporis sed porro excepturi dolorum, blanditiis, soluta minima necessitatibus vel quibusdam aliquid. Asperiores, rem incidunt! Non atque sunt, deleniti nihil deserunt molestias nam! Repudiandae ab nam reiciendis animi tempora autem ea? Fugit, maxime eveniet delectus officiis quisquam tenetur ex dignissimos rerum! Saepe velit fuga debitis nemo eos a est, quam, magnam cum blanditiis consectetur necessitatibus quasi earum alias delectus neque voluptates pariatur rerum repellat deleniti, omnis nulla? Excepturi a repellat placeat aliquid harum ad magni sequi illo numquam fuga! Deleniti hic laboriosam dicta eos ex numquam illo, repellat voluptatem? Odit eaque neque iusto veniam aperiam!";
+  const title =
+    blog_data.title.length == 0 ? "This is the Title" : blog_data.title;
+  const para1 = blog_data.para1.length == 0 ? dummystring : blog_data.para1;
+  const para2 = blog_data.para2.length == 0 ? dummystring : blog_data.para2;
+  const image1Url =
+    blog_data.image1Url === null
+      ? "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=404&q=80"
+      : blog_data.image1Url;
+  const image2Url =
+    blog_data.image2Url === null
+      ? "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJlJTIwdmlicmFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
+      : blog_data.image2Url;
+  const tag = blog_data.tag.length == 0 ? "Tag" : blog_data.tag;
   return (
     <>
-      {" "}
+      <div className="blog_div">
+        <div className="head_blog">
+          <p style={{ color: "#00ACED" }}>{tag}</p>
+          <h1 id="blgvw_title">{title}</h1>
+          <img className="blog_view_img1" alt="pic_1" src={image1Url} />
+        </div>
+        <p id="blgvw_p1">{para1}</p>
+        <img className="blog_view_img1" alt="pic_2" src={image2Url} />
+        <p id="blgvw_p1">{para2}</p>
+      </div>
+
+      {/* {" "}
       <Box sx={{ margin: "20px 80px 20px 80px" }}>
         <Typography
           variant="h3"
@@ -184,7 +205,7 @@ const Blog_1 = (blog_data) => {
           </Box>
         </Box>
         <h1>The End</h1>
-      </Box>{" "}
+      </Box>{" "} */}
     </>
   );
 };

@@ -17,6 +17,11 @@ const Explore = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // scroll to the top of the page
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const object = {
       tag: tag === "Blogs" ? "" : tag,
     };
@@ -50,8 +55,22 @@ const Explore = () => {
             >
               Home
             </Typography>
-            <Typography className="nav_links">My Blogs</Typography>
-            <Typography className="nav_links">Explore</Typography>
+            <Typography
+              className="nav_links"
+              onClick={() => {
+                navigate("/my-blogs");
+              }}
+            >
+              My Blogs
+            </Typography>
+            <Typography
+              className="nav_links"
+              onClick={() => {
+                navigate("/explore");
+              }}
+            >
+              Explore
+            </Typography>
           </Box>
           <hr />
           <Box className="Blog_cat">

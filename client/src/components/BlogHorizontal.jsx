@@ -5,16 +5,18 @@ import { useNavigate } from "react-router-dom";
 
 const BlogHorizontal = (props) => {
   const blog_data = props.blog_data;
-  console.log(blog_data);
+  // console.log(blog_data);
 
   const currentDate = new Date();
   const timestamp = new Date(blog_data.timestamp);
+  const month = timestamp.toLocaleString("default", { month: "long" });
+  const year = timestamp.getFullYear();
   const timeDiffHours = (currentDate - timestamp) / (1000 * 3600);
   const publish_time =
     timeDiffHours <= 24
       ? `${Math.ceil(timeDiffHours)} hours`
       : `${Math.ceil(timeDiffHours / 24)} days`;
-  console.log(timeDiffHours);
+  // console.log(timeDiffHours);
 
   const timetaken =
     (blog_data.para1.length + blog_data.para2.length) / (20 * 60);
@@ -22,15 +24,6 @@ const BlogHorizontal = (props) => {
   const navigate = useNavigate();
   return (
     <Box className="blog_cont">
-      <Box className="head">
-        <Avatar
-          id="avt"
-          src="https://th.bing.com/th?id=OSB.AAyAATv.png&w=138&h=104&o=6&dpr=1.5&pid=SANGAM"
-          alt="ved"
-        />
-        <Typography className="txt_head">Ved</Typography>
-        <Typography className="txt_head">{publish_time} ago</Typography>
-      </Box>
       <Box
         sx={{
           display: "flex",
@@ -40,6 +33,14 @@ const BlogHorizontal = (props) => {
         }}
       >
         <Box className="data">
+          <Box className="head">
+            <Typography id="txt_nam" className="txt_head">
+              {blog_data.name}
+            </Typography>
+            <Typography style={{ marginLeft: "12px" }} className="txt_head">
+              {publish_time} ago
+            </Typography>
+          </Box>
           <Typography
             onClick={() => {
               navigate("/blog-viewer", {
@@ -54,8 +55,11 @@ const BlogHorizontal = (props) => {
             {blog_data.para1.slice(0, 180)}...
           </Typography>
           <div className="extra">
-            <button id="btn-tag">{blog_data.tag}</button>
+            <p style={{ color: "gray" }}>
+              {month} {year}
+            </p>
             <p id="ttr">{Math.ceil(timetaken)} min read</p>
+            <p id="btn-tag">{blog_data.tag}</p>
           </div>
         </Box>
         <Box id="img_box">

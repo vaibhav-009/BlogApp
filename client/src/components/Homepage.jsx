@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Navbar from "./Navbar";
 import Featured from "./Featured";
@@ -9,6 +9,10 @@ import "../../css/homepage.css";
 import EditorPick from "./EditorPick";
 
 const Homepage = () => {
+  useEffect(() => {
+    // scroll to the top of the page
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar />

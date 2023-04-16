@@ -1,11 +1,15 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "../../css/viewblog.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const View_Blog = () => {
+  useEffect(() => {
+    // scroll to the top of the page
+    window.scrollTo(0, 0);
+  }, []);
   const { state } = useLocation();
   console.log(state);
   const title = state.title;

@@ -1,4 +1,6 @@
-
+.my_blg_box{
+    margin: 20px;
+}
 .add_button{
     display: flex;
     align-items: center;
@@ -6,24 +8,31 @@
 }
 
 #button_{
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 50px;
-    width:80px;
-    height:80px;
+    background-color: rgba(193, 190, 190, 0.1);
+    border-radius: 100%;
+    width:60px;
+    height:60px;
     transition: 0.5s;
+    border: 1px solid silver;
+    box-shadow: 0px 0px 1px snow;
 }
 
 .text{
     /* display:none; */
     transition: 0.5s;
-    font-size: 20px;
-    font-family: 'Lora';
+    font-size: 13px;
+    font-family: 'Lora', serif;
     transition: opacity 0.3s ease-in-out;
     opacity:0;
     width: 0px;
+    color: black;
+    font-weight: normal;
+    color:black;
+    line-height: 20px;
 }
 
 #button_:hover {
+    border-radius: 50px;
     width: 200px;
     transition: width 0.4s ease-in-out;
 }
@@ -39,10 +48,10 @@
     align-items: center;
 }
 
-
-.blogcard{
-    margin-left: 15px;
+.myblg_cards{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    margin-bottom: 200px;
-}
+    /* flex-wrap: wrap; */
+    margin-bottom: 120px;
+    /* align-items: center; */
+    grid-template-columns: repeat(3, 1fr);
+  }
