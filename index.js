@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const e = require('express');
+const path = require('path');
 const app = express();
 
 app.use(express.json());
@@ -96,6 +97,17 @@ app.post("/api/user_blogs", async(req, res) => {
     res.send(data);
 })
 
-app.listen(5000, function () {
-    console.log("Server is running on localhost5000");
+app.use(express.static(path.join(__dirname, "./client/dist")));
+app.get("*", function (req, res) {
+  res.sendFile(
+    path.join(__dirname, "./client/dist/index.html"),
+    function (err) {
+      res.status(500).send(err);
+    }
+  );
+}); 
+
+const PORT = 5000 || process.env.PORT;
+app.listen(PORT, function () {
+    console.log("Server is running on port");
 });
