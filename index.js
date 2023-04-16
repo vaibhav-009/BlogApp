@@ -32,9 +32,6 @@ const BlogSchema = new mongoose.Schema(
 
 const BlogObj = mongoose.model('BlogObj', BlogSchema);
 
-app.get("/", (req, res) => {
-    res.send("hello");
-});
 
 app.post("/api/create", (req, res) => {
     
