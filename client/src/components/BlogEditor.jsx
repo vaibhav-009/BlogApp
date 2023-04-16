@@ -38,8 +38,10 @@ const BlogEditor = () => {
       var email = currentUser.email;
       var index = email.indexOf("@");
       var username = email.substring(0, index);
+
       const object = {
         id: username,
+        name: currentUser.displayName,
         head: title,
         label: tag,
         body1: para1,

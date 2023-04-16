@@ -48,7 +48,7 @@ function Navbar(props) {
               navigate("/my-blogs");
             }}
           >
-            Create
+            My Blogs
           </span>
         )}
       </div>

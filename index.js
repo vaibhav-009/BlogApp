@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const e = require('express');
 const app = express();
 
 app.use(express.json());
@@ -18,6 +19,7 @@ connect();
 const BlogSchema = new mongoose.Schema(
     {
         userId: String,
+        name: String,
         title: String,
         tag: String,
         para1: String,
@@ -37,6 +39,7 @@ app.post("/api/create", (req, res) => {
     
     const blog = {
         userId: req.body.id,
+        name: req.body.name,
         title: req.body.head,
         tag: req.body.label,
         para1: req.body.body1,
