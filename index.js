@@ -106,5 +106,5 @@ app.get("*", function (req, res) {
 
 const PORT = 5000 || process.env.PORT;
 app.listen(PORT, function () {
-    console.log("Server is running on port");
+    console.log(`Server is running on port ${PORT}`);
 });
