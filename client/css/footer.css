@@ -7,7 +7,7 @@
 }
 
 .footer_{
-    background-color: black;
+    background-color: #1A1F24;
     padding: 20px 40px;
     box-sizing: border-box;
     color: white;
@@ -44,8 +44,8 @@
 }
 
 .foot_links{
-    font-size: 14px;
-    color: silver;
+    font-size: 15px;
+    color: #A2845C;
     padding: 5px;
     cursor: pointer;
     padding: 5px;
